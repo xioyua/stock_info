@@ -8,8 +8,8 @@ SVNAME = "localhost"
 SVUSER = "root"
 SVPAWD = "1234321xy"
 DBNAME = "TESTDB"
-class XueQiuSql():
-    '''专用于雪球的数据库方法类'''
+class stock_Mysql():
+    '''专用于stock的数据库方法类'''
     login = ()
     def __init__(self):
         pass
@@ -55,7 +55,7 @@ class XueQiuSql():
         db.close()
 
     def clearDB(self):
-        '''清除雪球表的数据'''
+        '''清除股票的数据'''
         db = MySQLdb.connect(SVNAME, SVUSER, SVPAWD, DBNAME, charset="utf8")
         cursor = db.cursor()
         sql ="DELETE FROM stock_info "

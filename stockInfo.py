@@ -80,12 +80,13 @@ class login_web:
                 i += 1
             self.dic['股票名字'] = self.dic ['股票名字'].split('"')[1]
 id = input("please input a number\n")
-de_price = float(input("请输入你想要提醒的上限价格\n"))
+hi_price = float(input("请输入你想要提醒的上限价格\n"))
+lo_price = float(input("请输入你想要提醒的下限价格\n"))
 lg = login_web()
 while True:
     lg.getInfo(id)
     print(lg.dic['股票名字']+':'+lg.dic['时间']+' : ' +  lg.dic['当前价格'])
-    if float(lg.dic['当前价格']) >= de_price:
+    if float(lg.dic['当前价格']) >= hi_price or float(lg.dic['当前价格']<=lo_price):
         win32api.MessageBox(0, str(lg.dic['当前价格'])+'价格已达到', "注意啦", win32con.MB_ICONWARNING)
         break
     time.sleep(5)
